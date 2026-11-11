@@ -1,0 +1,15 @@
+CREATE OR REPLACE VIEW public.v_compras AS 
+ SELECT dt.id_prod,
+    dt.id_compra,
+    dt.det_cant,
+    dt.det_exenta,
+    dt.det_iva5,
+    dt.det_iva10,
+    c.compra_nrofactura,
+    c.id_proveedor,
+    c.comp_monto
+   FROM det_compra dt
+     JOIN compra c ON c.id_compra = dt.id_compra;
+
+ALTER TABLE public.v_compras
+  OWNER TO postgres;

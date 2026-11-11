@@ -1,0 +1,13 @@
+@echo off
+SET PG_BIN="C:\Program Files\PostgreSQL\9.5\bin\pg_dump.exe" 
+SET PG_HOST=localhost
+SET PG_PORT=5432
+SET PG_DATABASE=atrepresentaciones
+SET PG_USER=postgres
+SET PGPASSWORD=123456
+SET PG_PATH=C:\Users\javier\Desktop\backups
+SET FECHAYHORA=%date:/=-%-%time=-0,8%
+SET FECHAYHORA=%FECHAYHORA::=-%
+SET FECHAYHORA=%FECHAYHORA: -0%
+SET PG_FILENAME=%PG_PATG%\%PG_DATABASE%-%FECHAYHORA%.sql
+%PG_BIN% -i -h %PG_HOST% -p %PG_PORT% -U %PG_USER% %PG_DATABASE% > %PG_FILENAMES%
